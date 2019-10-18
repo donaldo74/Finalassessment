@@ -14,11 +14,50 @@ import java.util.Scanner;
  */
 public class Question2 
 {
+    //e). Write a main method, which will use the methods described above,
+    //    to input a product name and output the product code.
     public static void main(String[] args)
     {
         String productName = getValidProduct();
     }
-        
+    
+    //b). Write a method, called getValidInteger(), that returns a positive
+    //    integer in the range specified by two parameters.
+    static int getValidInteger(int lower, int upper)
+    {
+        Scanner kb = new Scanner(System.in);
+        boolean validInteger = false;
+        int value = 0;
+        //loop until number in required range
+        while(!validInteger)
+        {
+            validInteger = true;
+            //This try catch block will capture 'exception' errors.
+            //If the user enters a non number it will throw an exception
+            //and the code jumps to the catch block
+            try
+            {
+                System.out.printf("Please enter in a number between %d and %d (inclusive):",lower, upper);
+                value = kb.nextInt();
+            }
+            catch (Exception e)
+            {
+                validInteger = false;
+                kb.nextLine();
+            }
+ 
+            //test if number is in requested range
+            if(value < lower || value > upper)
+            {
+                validInteger = false;
+            }
+        }
+        return value;
+    }
+    
+    
+    //a) Write a method, called getValidProduct(), that returns a string which
+    //is a valid product name.    
     static String getValidProduct()
     {
         //request product name
