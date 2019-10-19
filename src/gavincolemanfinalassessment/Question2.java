@@ -19,7 +19,33 @@ public class Question2
     public static void main(String[] args)
     {
         String productName = getValidProduct();
+        String productCode = createProductCode(productName);
+        Display("Your new product code = " + productCode);
     }
+    
+    //d). Write a method, called Display(), which will output to the
+    //    screen, a message.
+    static void Display(String str)
+    {
+        System.out.println(str);
+    }
+    
+    //c). Write a method, called createProductCode(), which accepts a product
+    //    name as a parameter and returns a product code.
+    static String createProductCode(String productName)
+    {
+        // get second character
+        String secondChar = String.valueOf(productName.charAt(1));
+        // get a number between 65 and 90
+        int num = getValidInteger(65,90);
+        //get last 3 characters
+        String last3Chars = productName.substring(productName.length()-3);
+        //concat to make new code
+        String productCode = secondChar + num + last3Chars;
+        return productCode;
+    }
+    
+    
     
     //b). Write a method, called getValidInteger(), that returns a positive
     //    integer in the range specified by two parameters.
