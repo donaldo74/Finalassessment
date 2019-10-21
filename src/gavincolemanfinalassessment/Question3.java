@@ -1,6 +1,6 @@
 package gavincolemanfinalassessment;
 
-
+import java.util.Scanner;
 /**
  *
  * @author Gavin
@@ -17,7 +17,36 @@ public class Question3
     public static void main(String[] args)
     {
         DisplayBandsAboveAverage();
+        ViewBandSales();
     }
+    
+    // (ii). Allow the user to enter the name of a band anddisplay it's
+    //  sales or an error message if the band does not exist in the array.
+    static void ViewBandSales()
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Please enter name of band: ");
+        String band = kb.nextLine();
+        int idx = -1;
+        for(int n=0; n< bands.length; n++)
+        {
+            if(band.equals(bands[n]))
+            {
+                idx = n;
+                break;
+            }
+        }
+        
+        if(idx != -1)
+        {
+            System.out.println("Sales for " + bands[idx] + " = " + sales[idx]);
+        }
+        else
+        {
+            System.out.println("Band name " + band + " not found.");
+        }
+    }
+    
     
     // (i). Calculate and display the average sales and the name(s) of bands
     // with more than average sales.
