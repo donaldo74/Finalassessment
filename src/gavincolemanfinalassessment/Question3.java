@@ -18,6 +18,12 @@ public class Question3
     {
         DisplayBandsAboveAverage();
         ViewBandSales();
+        CreateRapperName();
+    }
+    
+    static void CreateRapperName()
+    {
+    
     }
     
     // (ii). Allow the user to enter the name of a band anddisplay it's
