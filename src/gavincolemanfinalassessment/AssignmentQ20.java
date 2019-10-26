@@ -24,7 +24,39 @@ public class AssignmentQ20
         String productCode = getValidProductCode("Please enter product code: ");
     }
     
-    //-------------------------------------------------------------------------
+    //b.------------------------------------------------------------------------
+    //getProductType - examine the product code to find and return the product type
+    static String getProductType(String productCode)
+    {
+        String productType = "";
+        //first cut the product type from the product code.
+        String typeCode = productCode.substring(3,6);
+        //the codes are stored in a 2 dimensional array, each element is an array
+        //of 2 values.
+        //loop through the array, getting the prod array for each code, this 
+        //contains the code and the type.
+        for(String[]prod : productTypeCodes)
+        {
+            //check if typeCode matches the first element.
+            if(prod[0].equals(typeCode))
+            {
+                //if it does, assign the second element to productType, exit the
+                //loop once its been found.
+                productType = prod[1];
+                break;
+            }
+        }
+        return productType;
+    }
+    //c.-----------------------------------------------------------------------
+    //getSupplierId - returns the supplier code from the product code, which is
+    //contained in the first three characters.
+    
+    static String getSupplierId(String productCode)
+    {
+        return productCode.substring(0,3);
+    }
+    //a.-----------------------------------------------------------------------
     //getValidProductCode - asks the user (using the prompt string) to enter in
     //a product code. The method then validates the code
     
