@@ -22,6 +22,32 @@ public class AssignmentQ20
     public static void main(String[] args)
     {
         String productCode = getValidProductCode("Please enter product code: ");
+        int markUp = getMarkUp(productCode);
+        if(markUp >=8)
+        {
+            Display("This " + getProductType(productCode) + " product is supplied by supplier "
+            + getSupplierId(productCode) + " and the markup is " + markUp + "&");
+        }
+        else
+        {
+            Display("Markup is less than 8%");
+        }
+    }
+    
+    //e.------------------------------------------------------------------------
+    //Display - displays the string on the command line.
+    static void Display(String str)
+    {
+        System.out.print(str);
+    }
+    
+    //d.------------------------------------------------------------------------
+    //getMarkUp - gets the last one or two digits from the code which represent
+    //the markup
+    static int getMarkUp(String productCode)
+    {
+        String markUp = productCode.substring(6);
+        return Integer.valueOf(markUp);
     }
     
     //b.------------------------------------------------------------------------
