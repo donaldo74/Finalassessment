@@ -26,7 +26,7 @@ public class AssignmentQ20
         if(markUp >=8)
         {
             Display("This " + getProductType(productCode) + " product is supplied by supplier "
-            + getSupplierId(productCode) + " and the markup is " + markUp + "&");
+            + getSupplierId(productCode) + " and the markup is " + markUp + "%" +"\n");
         }
         else
         {
@@ -109,10 +109,36 @@ public class AssignmentQ20
             {
                 System.out.println("Code must contain valid product code -\"DRY\",\"FRO\" or \"HRW\"");
             }
+            
+            //check the last one or two characters are numbers
+            else if( !isNumber(code.substring(6)))
+            {
+                System.out.println("Characters after product numbers must be numbers, representing markup, Please try again");
+            }
+            else
+            {
+                System.out.println("Code is valid");
+                isValidCode = true;
+            }
         }
         return code;
     }
     
+    //--------------------------------------------------------------------------
+    //Helper method to check if the string is a number
+    static boolean isNumber(String str)
+    {
+        boolean isNum = true;
+        for(char c: str.toCharArray())
+        {
+            if(!Character.isDigit(c))
+            {
+                isNum = false;
+                break;
+            }
+        }
+        return isNum;
+    }
     //--------------------------------------------------------------------------
     //isValidProductTypeCode - check to see if this is a valid product type code
     //by looking up the productTypeCode array
